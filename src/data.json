@@ -1,76 +1,97 @@
 [{
-    "component": "Page",
-    "name": "Page1",
+    "container": "Page",
+    "label": "Page 1",
+    "id": "page1",
     "children": [{
-            "component": "Row",
-            "size": "13",
+            "container": "Row",
+            "size": "11",
             "border": "#00FFF6",
             "children": [{
-                    "component": "Column",
-                    "name": "Autotune",
+                    "container": "Column",
+                    "label": "Autotune",
                     "children": [{
-                            "component": "Column",
+                            "container": "Column",
                             "border": "#00FFF6",
-                            "parameter": "Pitch"
+                            "parameter": {
+                                "ref": "Pitch"
+                            }
                         },
                         {
-                            "component": "Column",
+                            "container": "Column",
                             "border": "#00FFF6",
-                            "parameter": "Key"
+                            "parameter": {
+                                "ref": "Key"
+                            }
                         },
                         {
-                            "component": "Column",
+                            "container": "Column",
                             "border": "#00FFF6",
-                            "parameter": "Scale"
+                            "parameter": {
+                                "ref": "Scale"
+                            }
                         }
                     ]
                 },
                 {
-                    "component": "Column",
+                    "container": "Column",
                     "children": [{
-                            "component": "Row",
+                            "container": "Row",
                             "border": "#00FFF6",
-                            "parameter": "Tempo"
+                            "size": "4",
+                            "parameter": {
+                                "ref": "Tempo"
+                            }
                         },
                         {
-                            "component": "Row",
+                            "container": "Row",
+                            "size": "8",
                             "border": "#00FFF6",
-                            "parameter": "Rhythm"
+                            "parameter": {
+                                "ref": "Rhythm"
+                            }
                         }
                     ]
                 },
                 {
-                    "component": "Column",
+                    "container": "Column",
                     "children": [{
-                            "component": "Row",
+                            "container": "Row",
                             "size": "10",
-                            "border": "Yellow",
-                            "parameter": "Chorus"
+                            "border": "#00FFF6",
+                            "parameter": {
+                                "ref": "Mix"
+                            }
                         },
                         {
-                            "component": "Row",
+                            "container": "Row",
                             "size": "5",
                             "border": "#00FFF6",
-                            "parameter": "Delay"
+                            "parameter": {
+                                "ref": "Delay"
+                            }
                         }
                     ]
                 }
             ]
         },
         {
-            "component": "Row",
+            "container": "Row",
             "size": "4",
             "border": "#00FFF6",
-            "name": "FX",
+            "label": "FX",
             "children": [{
-                    "component": "Column",
+                    "container": "Column",
                     "border": "#00FFF6",
-                    "parameter": "Reverb",
-                    "label": "Reverb"
+                    "parameter": {
+                        "ref": "Reverb",
+                        "label": "Reverb Label"
+                    }
                 },
                 {
-                    "component": "Column",
-                    "parameter": "Distortion"
+                    "container": "Column",
+                    "parameter": {
+                        "ref": "Distortion"
+                    }
                 }
             ]
         }

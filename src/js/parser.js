@@ -64,7 +64,7 @@ function ParseLayout(jsonObjects, region) {
         if (object.size) {
             customGridSize += parseInt(object.size);
         } else {
-            customGridSize++; // If the size of the component is not specified, we add 1 as the default value.
+            customGridSize++; // If the size of the container is not specified, we add 1 as the default value.
         }
     }
     //Finally we check if customGridSize is higher than nchildren, if so, will mean that the grid has a custom size specified.
@@ -76,22 +76,22 @@ function ParseLayout(jsonObjects, region) {
 
     /**
      * In this second loop we iterate over the children to construct the grid regions based on
-     * the components specified in the JSON.
+     * the containers specified in the JSON.
      * Each object can have the following fields:
-     * - component: Defining the type of the object (Row, Column or Page).
-     * - name: Specifies the name of the component/object.
-     * - size: Specifies a custom size for the Row/Column components.
-     * - children: Children objects of the component.
-     * - parameter : Specifies the ID of a parameter in component (Row,Column).
+     * - container: Defining the type of the object (Row, Column or Page).
+     * - name: Specifies the name of the container/object.
+     * - size: Specifies a custom size for the Row/Column containers.
+     * - children: Children objects of the container.
+     * - parameter : Specifies the ID of a parameter in container (Row,Column).
      * - border: Specifies the border color of the region, if not specified, there is no border.
      */
     for (let i = 0; i < nchildren; i++) {
         const object = jsonObjects[i];
 
-        //The "component" field is mandatory, if not specified, nothing is performed.
-        if (object.component) {
-            var component = object.component;
-            switch (component) {
+        //The "container" field is mandatory, if not specified, nothing is performed.
+        if (object.container) {
+            var container = object.container;
+            switch (container) {
                 case "Row":
                     if (customSize) {
                         object.size = object.size != undefined ? object.size : 1; //set 1 if size not specified
@@ -117,9 +117,14 @@ function ParseLayout(jsonObjects, region) {
                     break;
             }
             if (object.parameter) {
-                //ID mandatory!
-                DrawElement(region, object.parameter); //By default, sibling inputs are displayed in a row
-                //
+                var parameter = object.parameter;
+                //Parameter ID mandatory!
+                if (parameter.ref) {
+                    var label = parameter.label != undefined ? parameter.label : parameter.ref;
+                    DrawElement(region, label);
+                } else {
+                    console.log("Reference is mandatory!")
+                }
             }
             if (object.name) {
                 //TODO: do something with the name field...
