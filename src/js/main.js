@@ -1,8 +1,7 @@
 function app(width, height, json) {
     var c = document.getElementById("canvas");
     var ctx = c.getContext("2d");
-    var region = new Region(ctx, 0, 0, width, height);
-    region.PrintRegion("PARENT")
+    var region = new Region(ctx, 0, 0, parseInt(width), parseInt(height));
     ParseLayout(json, region);
 }
 

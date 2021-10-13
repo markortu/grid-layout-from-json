@@ -51,3 +51,28 @@ function createEditor(json) {
 
     window.editor = editor;
 }
+
+function DrawRectangle(region, color) {
+    region.ctx.beginPath();
+    region.ctx.lineWidth = 3;
+    region.ctx.strokeStyle = color;
+    region.ctx.rect(region.L, region.T, region.W(), region.H());
+    region.ctx.stroke();
+}
+
+function DrawElement(region, ID) {
+    region.ctx.beginPath();
+    region.ctx.fillStyle = "#837f7f";
+    region.ctx.arc((region.L + region.R) / 2, (region.T + region.B) / 2, 30, 0, 2 * Math.PI, false);
+    region.ctx.fill();
+    region.ctx.beginPath();
+    region.ctx.fillStyle = "#686868";
+    region.ctx.arc((region.L + region.R) / 2, (region.T + region.B) / 2, 20, 0, 2 * Math.PI, false);
+    region.ctx.fill();
+    region.ctx.beginPath();
+    region.ctx.font = "bold 15px Arial";
+    region.ctx.textAlign = "center";
+    region.ctx.fillStyle = "black";
+    region.ctx.fillText(ID, (region.L + region.R) / 2, 60 + (region.T + region.B) / 2, region.W());
+    region.ctx.fill();
+}

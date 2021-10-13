@@ -26,7 +26,7 @@ class Region {
         for (var row = 0; row < nRows; row++) {
             for (var col = 0; col < nColumns; col++) {
                 if (cell == cellIdx) {
-                    return new Region(this.ctx, col * cellWidth, row * cellHeight, (col + 1) * cellWidth, (row + 1) * cellHeight);
+                    return new Region(this.ctx, this.L + col * cellWidth, this.T + row * cellHeight, this.L + (col + 1) * cellWidth, this.T + (row + 1) * cellHeight);
                 }
                 cell++;
             }
@@ -41,14 +41,6 @@ class Region {
         table.bottom = this.B;
         console.table(table);
     }
-}
-
-function DrawRectangle(region, color) {
-    region.ctx.beginPath();
-    region.ctx.lineWidth = 3;
-    region.ctx.strokeStyle = color;
-    region.ctx.rect(region.L, region.T, region.W(), region.H());
-    region.ctx.stroke();
 }
 
 function ParseLayout(jsonObjects, region) {
@@ -126,8 +118,10 @@ function ParseLayout(jsonObjects, region) {
                     console.log("Page " + pageCounter++);
                     break;
                 case "Input":
-                    if (object.ID)
-                        region.PrintRegion(object.ID);
+                    if (object.ID) {
+                        //ID mandatory!
+                        DrawElement(parentRegion.CreateGrid(i, 1, nchildren), object.ID);
+                    }
                     break;
                 default:
                     break;
@@ -137,7 +131,6 @@ function ParseLayout(jsonObjects, region) {
                 console.log("Region name: " + object.name)
             }
             if (object.border) {
-                //TODO: draw a rectangle...
                 var color = object.border;
                 DrawRectangle(region, color);
             }

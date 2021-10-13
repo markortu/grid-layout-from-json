@@ -3,11 +3,11 @@
     "component": "Page",
     "children": [{
             "component": "Row",
-            "size": "8",
-            "border": "blue",
+            "size": "13",
+            "border": "#00FFF6",
             "children": [{
                     "component": "Column",
-                    "border": "Yellow",
+                    "border": "#00FFF6",
                     "name": "Autotune",
                     "children": [
                         { "component": "Input", "ID": "Pitch" },
@@ -17,7 +17,7 @@
                 },
                 {
                     "component": "Column",
-                    "border": "Yellow",
+                    "border": "#00FFF6",
                     "children": [
                         { "component": "Input", "ID": "Tempo" },
                         { "component": "Input", "ID": "Rhythm" }
@@ -25,7 +25,7 @@
                 },
                 {
                     "component": "Column",
-                    "border": "Yellow",
+                    "border": "#00FFF6",
                     "children": [{ "component": "Input", "ID": "Delay" }]
                 }
             ]
@@ -33,7 +33,7 @@
         {
             "component": "Row",
             "size": "4",
-            "border": "blue",
+            "border": "#00FFF6",
             "name": "FX",
             "children": [{
                 "component": "Input",
