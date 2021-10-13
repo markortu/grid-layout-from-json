@@ -46,8 +46,6 @@ class Region {
 function ParseLayout(jsonObjects, region) {
 
     var parentRegion = region;
-    var rowIdx = 0;
-    var columnIdx = 0;
     var nchildren = jsonObjects.length;
 
     var pageCounter = 0;
@@ -100,8 +98,7 @@ function ParseLayout(jsonObjects, region) {
                         region = new Region(parentRegion.ctx, parentRegion.L, parentRegion.T + heightSlice * offset, parentRegion.R, parentRegion.T + heightSlice * (offset + parseInt(object.size)));
                         offset += parseInt(object.size);
                     } else {
-                        region = parentRegion.CreateGrid(rowIdx, nchildren, 1);
-                        rowIdx++;
+                        region = parentRegion.CreateGrid(i, nchildren, 1);
                     }
                     break;
                 case "Column":
@@ -110,8 +107,7 @@ function ParseLayout(jsonObjects, region) {
                         region = new Region(parentRegion.ctx, widthSlice * offset, parentRegion.T, widthSlice * (offset + parseInt(object.size)), parentRegion.B);
                         offset += parseInt(object.size);
                     } else {
-                        region = parentRegion.CreateGrid(columnIdx, 1, nchildren);
-                        columnIdx++;
+                        region = parentRegion.CreateGrid(i, 1, nchildren);
                     }
                     break;
                 case "Page":
