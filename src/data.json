@@ -1,6 +1,6 @@
 [{
-    "name": "Page1",
     "component": "Page",
+    "name": "Page1",
     "children": [{
             "component": "Row",
             "size": "13",

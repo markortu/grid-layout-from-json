@@ -115,12 +115,12 @@ function ParseLayout(jsonObjects, region) {
                     }
                     break;
                 case "Page":
-                    console.log("Page " + pageCounter++);
+                    //console.log("Page " + pageCounter++);
                     break;
                 case "Input":
                     if (object.ID) {
                         //ID mandatory!
-                        DrawElement(parentRegion.CreateGrid(i, 1, nchildren), object.ID);
+                        DrawElement(parentRegion.CreateGrid(i, 1, nchildren), object.ID); //By default, sibling inputs are displayed in a row
                     }
                     break;
                 default:
@@ -128,7 +128,7 @@ function ParseLayout(jsonObjects, region) {
             }
             if (object.name) {
                 //TODO: do something with the name field...
-                console.log("Region name: " + object.name)
+                //console.log("Region name: " + object.name)
             }
             if (object.border) {
                 var color = object.border;
