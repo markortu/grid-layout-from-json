@@ -1,78 +1,97 @@
 [{
-    "component": "Page",
-    "name": "Page1",
+    "container": "Page",
+    "label": "Page 1",
+    "id": "page1",
     "children": [{
-            "component": "Row",
-            "size": "13",
+            "container": "Row",
+            "size": "11",
             "border": "#00FFF6",
             "children": [{
-                    "component": "Column",
-                    "border": "#00FFF6",
-                    "name": "Autotune",
+                    "container": "Column",
+                    "label": "Autotune",
                     "children": [{
-                            "component": "Input",
-                            "ID": "Pitch"
+                            "container": "Column",
+                            "border": "#00FFF6",
+                            "parameter": {
+                                "ref": "Pitch"
+                            }
                         },
                         {
-                            "component": "Input",
-                            "ID": "Key"
+                            "container": "Column",
+                            "border": "#00FFF6",
+                            "parameter": {
+                                "ref": "Key"
+                            }
                         },
                         {
-                            "component": "Input",
-                            "ID": "Scale"
+                            "container": "Column",
+                            "border": "#00FFF6",
+                            "parameter": {
+                                "ref": "Scale"
+                            }
                         }
                     ]
                 },
                 {
-                    "component": "Column",
-                    "border": "#00FFF6",
+                    "container": "Column",
                     "children": [{
-                            "component": "Input",
-                            "ID": "Tempo"
+                            "container": "Row",
+                            "border": "#00FFF6",
+                            "size": "4",
+                            "parameter": {
+                                "ref": "Tempo"
+                            }
                         },
                         {
-                            "component": "Input",
-                            "ID": "Rhythm"
+                            "container": "Row",
+                            "size": "8",
+                            "border": "#00FFF6",
+                            "parameter": {
+                                "ref": "Rhythm"
+                            }
                         }
                     ]
                 },
                 {
-                    "component": "Column",
+                    "container": "Column",
                     "children": [{
-                            "component": "Row",
+                            "container": "Row",
                             "size": "10",
-                            "border": "Yellow",
-                            "children": [{
-                                "component": "Input",
-                                "ID": "Chorus"
-                            }]
+                            "border": "#00FFF6",
+                            "parameter": {
+                                "ref": "Mix"
+                            }
                         },
                         {
-                            "component": "Row",
+                            "container": "Row",
                             "size": "5",
                             "border": "#00FFF6",
-                            "children": [{
-                                "component": "Input",
-                                "ID": "Delay"
-                            }]
+                            "parameter": {
+                                "ref": "Delay"
+                            }
                         }
                     ]
                 }
             ]
         },
         {
-            "component": "Row",
+            "container": "Row",
             "size": "4",
             "border": "#00FFF6",
-            "name": "FX",
+            "label": "FX",
             "children": [{
-                    "component": "Input",
-                    "ID": "Reverb",
-                    "label": "Reverb"
+                    "container": "Column",
+                    "border": "#00FFF6",
+                    "parameter": {
+                        "ref": "Reverb",
+                        "label": "Reverb Label"
+                    }
                 },
                 {
-                    "component": "Input",
-                    "ID": "Distortion"
+                    "container": "Column",
+                    "parameter": {
+                        "ref": "Distortion"
+                    }
                 }
             ]
         }
