@@ -78,11 +78,11 @@ function ParseLayout(jsonObjects, region) {
      * In this second loop we iterate over the children to construct the grid regions based on
      * the components specified in the JSON.
      * Each object can have the following fields:
-     * - component: Defining the type of the object (Row, Column, Input or Page).
+     * - component: Defining the type of the object (Row, Column or Page).
      * - name: Specifies the name of the component/object.
      * - size: Specifies a custom size for the Row/Column components.
      * - children: Children objects of the component.
-     * - ID : Specifies the ID of a parameter in an input component.
+     * - parameter : Specifies the ID of a parameter in component (Row,Column).
      * - border: Specifies the border color of the region, if not specified, there is no border.
      */
     for (let i = 0; i < nchildren; i++) {
@@ -113,14 +113,13 @@ function ParseLayout(jsonObjects, region) {
                 case "Page":
                     //console.log("Page " + pageCounter++);
                     break;
-                case "Input":
-                    if (object.ID) {
-                        //ID mandatory!
-                        DrawElement(parentRegion.CreateGrid(i, 1, nchildren), object.ID); //By default, sibling inputs are displayed in a row
-                    }
-                    break;
                 default:
                     break;
+            }
+            if (object.parameter) {
+                //ID mandatory!
+                DrawElement(region, object.parameter); //By default, sibling inputs are displayed in a row
+                //
             }
             if (object.name) {
                 //TODO: do something with the name field...

@@ -7,32 +7,35 @@
             "border": "#00FFF6",
             "children": [{
                     "component": "Column",
-                    "border": "#00FFF6",
                     "name": "Autotune",
                     "children": [{
-                            "component": "Input",
-                            "ID": "Pitch"
+                            "component": "Column",
+                            "border": "#00FFF6",
+                            "parameter": "Pitch"
                         },
                         {
-                            "component": "Input",
-                            "ID": "Key"
+                            "component": "Column",
+                            "border": "#00FFF6",
+                            "parameter": "Key"
                         },
                         {
-                            "component": "Input",
-                            "ID": "Scale"
+                            "component": "Column",
+                            "border": "#00FFF6",
+                            "parameter": "Scale"
                         }
                     ]
                 },
                 {
                     "component": "Column",
-                    "border": "#00FFF6",
                     "children": [{
-                            "component": "Input",
-                            "ID": "Tempo"
+                            "component": "Row",
+                            "border": "#00FFF6",
+                            "parameter": "Tempo"
                         },
                         {
-                            "component": "Input",
-                            "ID": "Rhythm"
+                            "component": "Row",
+                            "border": "#00FFF6",
+                            "parameter": "Rhythm"
                         }
                     ]
                 },
@@ -42,19 +45,13 @@
                             "component": "Row",
                             "size": "10",
                             "border": "Yellow",
-                            "children": [{
-                                "component": "Input",
-                                "ID": "Chorus"
-                            }]
+                            "parameter": "Chorus"
                         },
                         {
                             "component": "Row",
                             "size": "5",
                             "border": "#00FFF6",
-                            "children": [{
-                                "component": "Input",
-                                "ID": "Delay"
-                            }]
+                            "parameter": "Delay"
                         }
                     ]
                 }
@@ -66,13 +63,14 @@
             "border": "#00FFF6",
             "name": "FX",
             "children": [{
-                    "component": "Input",
-                    "ID": "Reverb",
+                    "component": "Column",
+                    "border": "#00FFF6",
+                    "parameter": "Reverb",
                     "label": "Reverb"
                 },
                 {
-                    "component": "Input",
-                    "ID": "Distortion"
+                    "component": "Column",
+                    "parameter": "Distortion"
                 }
             ]
         }
