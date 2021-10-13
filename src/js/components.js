@@ -41,7 +41,11 @@ function createEditor(json) {
         clearCanvas()
         let canvas = document.getElementById('canvas');
         var json = editor.getSession().getValue();
-        app(canvas.width, canvas.height, JSON.parse(json));
+        try {
+            app(canvas.width, canvas.height, JSON.parse(json));
+        } catch (e) {
+            return;
+        }
 
     });
 
